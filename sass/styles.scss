@@ -1,0 +1,27 @@
+@use 'components/mixins' as *;
+@use 'blocks/promo';
+@use 'blocks/dear';
+@use 'blocks/date';
+@use 'blocks/location';
+@use 'blocks/time';
+@use 'blocks/dress';
+@use 'blocks/gift';
+@use 'blocks/creator';
+@use 'blocks/photo';
+@use 'blocks/end';
+@import 'animate.css';
+
+
+@font-face {
+    font-family: 'Bodega Script';
+    src: url('BodegaScript.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.container {
+    max-width: 340px;
+    margin: 0 auto;
+}

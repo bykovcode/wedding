@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: url(../../img/bg.png) no-repeat center / cover;
+    // height: 100vh;
+    // width: 100vw;
+    // background: #adbaa9;
+    background: -webkit-linear-gradient(90deg, #ffffff, #fef4f0, #fde9e1, #fbd2c3);
+    background: linear-gradient(90deg, #ffffff, #fef4f0, #fde9e1, #fbd2c3);
+}
+
+.promo {
+    height: 100vh;
+    width: 100%;
+    max-width: 430px;
+    // background: url(../../img/bg.png) no-repeat center / cover;
+    padding: 0;
+
+    h3 {
+        font-family: "Poiret One", sans-serif;
+        font-weight: 100;
+        padding-top: 25vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        margin-bottom: 60px;
+        font-weight: 400;
+
+    }
+
+    &__name {
+        text-align: center;
+        font-family: 'Bodega Script';
+        font-size: 75px;
+        font-weight: 500;
+        animation-duration: 3s;
+        /* don't forget to set a duration! */
+    }
+
+    &__down {
+        font-family: "Poiret One", sans-serif;
+        margin-top: 100px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    &__chevron {
+        max-width: 100%;
+        display: flex;
+        margin: 0 auto;
+        height: 35px;
+        width: 35px;
+    }
+}

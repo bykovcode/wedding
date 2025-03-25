@@ -1,0 +1,55 @@
+.creator {
+    &__title {
+        font-family: "Poiret One", sans-serif;
+        text-align: center;
+        font-size: 38px;
+    }
+
+    &__descr {
+        font-family: "Poiret One", sans-serif;
+        margin-top: 15px;
+        text-align: center;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    &__name {
+        font-family: "Poiret One", sans-serif;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &__tel {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: #3f5f47;
+
+    }
+
+    &__social {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    &__tg {
+        font-size: 40px;
+        // color: #27a7e7;
+        color: black;
+    }
+
+    &__what {
+        font-size: 40px;
+        // color: #2cb742;
+        color: black;
+
+    }
+
+}

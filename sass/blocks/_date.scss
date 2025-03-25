@@ -1,0 +1,54 @@
+@use '../components/mixins' as *;
+
+.date {
+    margin: 60 auto 0 auto;
+
+
+    &__title {
+        text-align: center;
+        font-family: 'Bodega Script';
+        font-size: 45px;
+        font-weight: 500;
+    }
+
+    &__subtitle {
+        font-family: "Poiret One", sans-serif;
+        letter-spacing: 1px;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 20px;
+    }
+}
+
+.calendar {
+    margin: 30px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    padding: 10px;
+    text-align: center;
+}
+
+.day {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.highlight {
+    border: 2px solid rgb(255, 4, 4);
+    /* Обводка вокруг даты */
+    border-radius: 50%;
+}
+
+.empty {
+    visibility: hidden;
+    /* Пустые ячейки перед 1-м числом */
+}
+
+.liner {
+    margin-top: 40px;
+    width: 170px;
+    height: 1px;
+    background-color: black;
+    margin: 60px auto;
+}

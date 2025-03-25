@@ -1,0 +1,19 @@
+.gift {
+    text-align: center;
+
+    &__title {
+        font-family: 'Bodega Script';
+        font-size: 45px;
+        font-weight: 500;
+
+    }
+
+    p {
+        font-family: "Poiret One", sans-serif;
+        width: 340px;
+        margin: 50px auto 0 auto;
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 1.5;
+    }
+}

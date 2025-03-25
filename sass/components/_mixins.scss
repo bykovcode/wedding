@@ -1,0 +1,29 @@
+.liner {
+    width: 170px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 60px auto;
+    /* Центрирует горизонтально */
+    opacity: 0.5;
+    /* Делает линию полупрозрачной */
+}
+
+
+
+.btn {
+    width: 270px;
+    height: 55px;
+    padding: 5px;
+    text-align: center;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    text-align: center;
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: transparent;
+    animation: pulse 1s infinite;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s;
+    /* don't forget to set a duration! */
+}
