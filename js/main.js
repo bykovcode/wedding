@@ -151,3 +151,10 @@ document.getElementById("stop-music").addEventListener("click", function () {
     audio.pause();
     audio.currentTime = 0; // Сбросить время воспроизведения
 });
+
+
+let version = new Date().getTime(); // Уникальный параметр (время в миллисекундах)
+let css = document.createElement("link");
+css.rel = "stylesheet";
+css.href = "styles.css?v=" + version;
+document.head.appendChild(css);
