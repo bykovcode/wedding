@@ -48,8 +48,6 @@
     cursor: pointer;
     text-align: center;
     animation: pulse 1s infinite;
-    transition: all 10s ease-in-out;
-    color: black;
     letter-spacing: 0.5px;
 
 
@@ -61,10 +59,7 @@
     place-items: center;
 }
 
-#stop-music:hover {
-    background: black;
-    color: white;
-}
+
 
 #stop-music:disabled {
     opacity: 0.5;
