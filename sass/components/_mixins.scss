@@ -31,9 +31,10 @@
 
 #stop-music {
     margin-top: 220px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 280px;
     height: 65px;
     padding: 5px;
     text-align: center;
@@ -41,14 +42,15 @@
     border-radius: 30px;
     font-family: "Poiret One", sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     background: transparent;
     cursor: pointer;
     text-align: center;
     animation: pulse 1s infinite;
-    transition: all 1s ease-in-out;
+    transition: all 10s ease-in-out;
     color: black;
+    letter-spacing: 0.5px;
 
 
 }
@@ -79,5 +81,5 @@
     /* Центрирует по вертикали */
     height: 100vh;
     /* Высота всей страницы */
-    margin-left: 27px;
+    margin-left: 30px;
 }
