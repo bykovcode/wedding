@@ -27,3 +27,34 @@
     animation-duration: 1s;
     /* don't forget to set a duration! */
 }
+
+
+#stop-music {
+    display: block;
+    margin: 50px auto 0 auto;
+    width: 270px;
+    height: 55px;
+    padding: 5px;
+    text-align: center;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    font-family: "Poiret One", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    animation: pulse 1s infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+#stop-music:hover {
+    background: black;
+    color: white;
+}
+
+#stop-music:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    animation: none;
+}

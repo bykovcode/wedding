@@ -113,3 +113,18 @@ colorCircles.forEach(circle => {
     observer.observe(circle); // Наблюдаем за каждым элементом circle
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("bg-music");
+    document.body.addEventListener("click", function () {
+        audio.play();
+    }, { once: true }); // Запускаем музыку только один раз при первом клике
+});
+
+const audio = document.getElementById("bg-music");
+const button = document.getElementById("stop-music");
+
+button.addEventListener("click", function () {
+    audio.pause();
+    audio.currentTime = 0; // Сбросить время воспроизведения
+    // Отключить кнопку после выключения
+});
