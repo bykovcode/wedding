@@ -30,23 +30,33 @@
 
 
 #stop-music {
-    display: block;
-    margin: 50px auto 0 auto;
-    width: 270px;
-    height: 55px;
+    margin-top: 240px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 65px;
     padding: 5px;
     text-align: center;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.301);
+    border-radius: 30px;
     font-family: "Poiret One", sans-serif;
+    font-size: 14px;
     font-weight: 600;
     font-style: normal;
     background: transparent;
     cursor: pointer;
-    font-size: 18px;
+    text-align: center;
     animation: pulse 1s infinite;
-    transition: all 0.3s ease-in-out;
+    transition: all 1s ease-in-out;
     color: black;
+
+
+}
+
+#stop-music img {
+    width: 30px;
+    height: 30px;
+    place-items: center;
 }
 
 #stop-music:hover {
@@ -58,4 +68,16 @@
     opacity: 0.5;
     cursor: not-allowed;
     animation: none;
+}
+
+
+.contmusic {
+    display: flex;
+    justify-content: center;
+    /* Центрирует по горизонтали */
+    align-items: center;
+    /* Центрирует по вертикали */
+    height: 100vh;
+    /* Высота всей страницы */
+    margin-left: 15px;
 }
