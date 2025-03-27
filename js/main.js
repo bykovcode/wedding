@@ -116,29 +116,36 @@ colorCircles.forEach(circle => {
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("bg-music");
 
-    // Попытка запустить музыку сразу
+    // Попытка сразу запустить музыку
     const playPromise = audio.play();
 
     if (playPromise !== undefined) {
         playPromise.then(() => {
             console.log("Музыка автоматически запущена!");
         }).catch(() => {
-            console.log("Автовоспроизведение заблокировано. Ожидание действия пользователя...");
+            console.log("Автовоспроизведение заблокировано. Ждём действия пользователя...");
 
-            // Если браузер заблокировал, включаем музыку при любом взаимодействии
+            // Функция для включения музыки при взаимодействии
             const enableAudio = () => {
-                audio.play().catch(() => console.log("Ошибка воспроизведения"));
+                audio.play().catch(err => console.log("Ошибка воспроизведения", err));
+
+                // Удаляем обработчики после первого взаимодействия
                 document.removeEventListener("click", enableAudio);
-                document.removeEventListener("scroll", enableAudio);
+                document.removeEventListener("touchstart", enableAudio);
+                document.removeEventListener("keydown", enableAudio);
+                document.removeEventListener("mousemove", enableAudio);
             };
 
+            // Запуск при любом действии пользователя
             document.addEventListener("click", enableAudio);
-            document.addEventListener("scroll", enableAudio);
+            document.addEventListener("touchstart", enableAudio);
+            document.addEventListener("keydown", enableAudio);
+            document.addEventListener("mousemove", enableAudio);
         });
     }
 });
 
-// Обработчик для кнопки выключения
+// Кнопка для выключения музыки
 document.getElementById("stop-music").addEventListener("click", function () {
     const audio = document.getElementById("bg-music");
     audio.pause();
