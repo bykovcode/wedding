@@ -115,16 +115,32 @@ colorCircles.forEach(circle => {
 
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("bg-music");
-    document.body.addEventListener("click", function () {
-        audio.play();
-    }, { once: true }); // Запускаем музыку только один раз при первом клике
+
+    // Попытка запустить музыку сразу
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            console.log("Музыка автоматически запущена!");
+        }).catch(() => {
+            console.log("Автовоспроизведение заблокировано. Ожидание действия пользователя...");
+
+            // Если браузер заблокировал, включаем музыку при любом взаимодействии
+            const enableAudio = () => {
+                audio.play().catch(() => console.log("Ошибка воспроизведения"));
+                document.removeEventListener("click", enableAudio);
+                document.removeEventListener("scroll", enableAudio);
+            };
+
+            document.addEventListener("click", enableAudio);
+            document.addEventListener("scroll", enableAudio);
+        });
+    }
 });
 
-const audio = document.getElementById("bg-music");
-const button = document.getElementById("stop-music");
-
-button.addEventListener("click", function () {
+// Обработчик для кнопки выключения
+document.getElementById("stop-music").addEventListener("click", function () {
+    const audio = document.getElementById("bg-music");
     audio.pause();
     audio.currentTime = 0; // Сбросить время воспроизведения
-    // Отключить кнопку после выключения
 });
