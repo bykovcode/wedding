@@ -15,8 +15,8 @@
     height: 55px;
     padding: 5px;
     text-align: center;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.301);
+    border-radius: 30px;
     text-align: center;
     font-family: "Poiret One", sans-serif;
     font-weight: 400;
@@ -30,7 +30,7 @@
 
 
 #stop-music {
-    margin-top: 220px;
+    margin-top: 190px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -49,6 +49,7 @@
     text-align: center;
     animation: pulse 1s infinite;
     letter-spacing: 0.5px;
+    color: black;
 
 
 }
