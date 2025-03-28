@@ -158,9 +158,3 @@ let css = document.createElement("link");
 css.rel = "stylesheet";
 css.href = "styles.css?v=" + version;
 document.head.appendChild(css);
-
-document.getElementById('scrollButton').addEventListener('click', function () {
-    document.getElementById('dear').scrollIntoView({
-        behavior: 'smooth'
-    });
-});
