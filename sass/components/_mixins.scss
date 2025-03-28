@@ -30,7 +30,7 @@
 
 
 #stop-music {
-    margin-top: 190px;
+    margin-top: 230px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -50,6 +50,10 @@
     animation: pulse 1s infinite;
     letter-spacing: 0.5px;
     color: black;
+
+    @media (max-height: 844px) {
+        margin-top: 90px;
+    }
 
 
 }
