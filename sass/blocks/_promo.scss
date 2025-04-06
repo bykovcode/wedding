@@ -13,11 +13,15 @@ body {
 }
 
 .promo {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     max-width: 430px;
     // background: url(../../img/bg.png) no-repeat center / cover;
     padding: 0;
+
+    @media (max-height: 844px) {
+        height: 65vh;
+    }
 
     h3 {
         font-family: "Poiret One", sans-serif;
