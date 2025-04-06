@@ -115,41 +115,53 @@ colorCircles.forEach(circle => {
 
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("bg-music");
+    const toggleButton = document.getElementById("toggle-music");
 
-    // Попытка сразу запустить музыку
-    const playPromise = audio.play();
+    let isMusicEnabled = false; // Было ли взаимодействие
+    let isPlaying = false;
 
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            console.log("Музыка автоматически запущена!");
-        }).catch(() => {
-            console.log("Автовоспроизведение заблокировано. Ждём действия пользователя...");
+    const enableAudio = () => {
+        if (!isMusicEnabled) {
+            isMusicEnabled = true;
 
-            // Функция для включения музыки при взаимодействии
-            const enableAudio = () => {
-                audio.play().catch(err => console.log("Ошибка воспроизведения", err));
+            // Немного отложим запуск — Android иногда это требует
+            setTimeout(() => {
+                audio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        console.log("Музыка запущена");
+                    })
+                    .catch(err => {
+                        console.log("Ошибка запуска музыки:", err);
+                    });
+            }, 100);
+        }
 
-                // Удаляем обработчики после первого взаимодействия
-                document.removeEventListener("click", enableAudio);
-                document.removeEventListener("touchstart", enableAudio);
-                document.removeEventListener("keydown", enableAudio);
-                document.removeEventListener("mousemove", enableAudio);
-            };
+        // Удаляем события после первого касания
+        document.removeEventListener("click", enableAudio);
+        document.removeEventListener("touchstart", enableAudio);
+    };
 
-            // Запуск при любом действии пользователя
-            document.addEventListener("click", enableAudio);
-            document.addEventListener("touchstart", enableAudio);
-            document.addEventListener("keydown", enableAudio);
-            document.addEventListener("mousemove", enableAudio);
-        });
-    }
-});
+    // Первое взаимодействие для запуска
+    document.addEventListener("click", enableAudio);
+    document.addEventListener("touchstart", enableAudio);
 
-// Кнопка для выключения музыки
-document.getElementById("stop-music").addEventListener("click", function () {
-    const audio = document.getElementById("bg-music");
-    audio.pause();
-    audio.currentTime = 0; // Сбросить время воспроизведения
+    // Кнопка переключения музыки
+    toggleButton.addEventListener("click", () => {
+        if (!isMusicEnabled) {
+            enableAudio(); // На случай, если юзер сразу жмёт кнопку
+            return;
+        }
+
+        if (isPlaying) {
+            audio.pause();
+            audio.currentTime = 0;
+            isPlaying = false;
+        } else {
+            audio.play().catch(err => console.log("Ошибка воспроизведения", err));
+            isPlaying = true;
+        }
+    });
 });
 
 
