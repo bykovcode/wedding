@@ -115,54 +115,34 @@ colorCircles.forEach(circle => {
 
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("bg-music");
-    const toggleButton = document.getElementById("toggle-music");
-
-    let isMusicEnabled = false; // Было ли взаимодействие
-    let isPlaying = false;
+    const toggleButton = document.getElementById("stop-music");
 
     const enableAudio = () => {
-        if (!isMusicEnabled) {
-            isMusicEnabled = true;
+        audio.play().then(() => {
+            console.log("Музыка запущена после взаимодействия");
+        }).catch(err => {
+            console.log("Ошибка воспроизведения", err);
+        });
 
-            // Немного отложим запуск — Android иногда это требует
-            setTimeout(() => {
-                audio.play()
-                    .then(() => {
-                        isPlaying = true;
-                        console.log("Музыка запущена");
-                    })
-                    .catch(err => {
-                        console.log("Ошибка запуска музыки:", err);
-                    });
-            }, 100);
-        }
-
-        // Удаляем события после первого касания
         document.removeEventListener("click", enableAudio);
         document.removeEventListener("touchstart", enableAudio);
     };
 
-    // Первое взаимодействие для запуска
+    // Включить музыку после первого взаимодействия
     document.addEventListener("click", enableAudio);
     document.addEventListener("touchstart", enableAudio);
 
-    // Кнопка переключения музыки
-    toggleButton.addEventListener("click", () => {
-        if (!isMusicEnabled) {
-            enableAudio(); // На случай, если юзер сразу жмёт кнопку
-            return;
-        }
-
-        if (isPlaying) {
+    // Кнопка для включения/выключения
+    toggleButton.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play().catch(err => console.log("Ошибка воспроизведения", err));
+        } else {
             audio.pause();
             audio.currentTime = 0;
-            isPlaying = false;
-        } else {
-            audio.play().catch(err => console.log("Ошибка воспроизведения", err));
-            isPlaying = true;
         }
     });
 });
+
 
 
 let version = new Date().getTime(); // Уникальный параметр (время в миллисекундах)
